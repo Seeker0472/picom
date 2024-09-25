@@ -16,6 +16,8 @@
           picom = prev.picom.overrideAttrs (oldAttrs: rec {
             version = "master";
             src = ./.;
+
+            buildInputs = (oldAttrs.buildInputs or [ ]) ++ [ prev.pcre ];
           });
         };
     in
