@@ -17,7 +17,12 @@
             version = "master";
             src = ./.;
 
-            buildInputs = (oldAttrs.buildInputs or [ ]) ++ [ prev.pcre ];
+            buildInputs = (oldAttrs.buildInputs or [ ]) ++ [ 
+              prev.pcre
+            ];
+            nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ 
+              prev.asciidoc
+            ];
           });
         };
     in
@@ -29,6 +34,7 @@
             inherit system;
             overlays = [
               self.overlays.default
+              # overlay
             ];
           };
         in
@@ -37,5 +43,5 @@
           packages.default = pkgs.picom;
         }
       )
-    // { overlays.default = overlay; };
+     //{ overlays.default = overlay; };
 }
