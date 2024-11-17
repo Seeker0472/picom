@@ -14,7 +14,7 @@
       overlay =
         final: prev: {
           picom = prev.picom.overrideAttrs (oldAttrs: rec {
-            version = "master";
+            version = "v9";
             src = ./.;
 
             buildInputs = (oldAttrs.buildInputs or [ ]) ++ [ 
